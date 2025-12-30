@@ -1,0 +1,14 @@
+{
+    "name": "adler.assetbundlemanger.editor",
+    "rootNamespace": "Adler.AssetBundleManager.Editor.Tests",
+    "references": ["GUID:bf50b2e1394537e4e8428ac0805e3d4c"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

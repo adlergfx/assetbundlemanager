@@ -1,0 +1,38 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/AssetBundle/Editor/AssetBundleManager.uss?fileID=7433441132597879392&amp;guid=3cd2e96fa4a96a540ab8161964a67e30&amp;type=3#AssetBundleManager" />
+    <engine:TextField label="Bundle Directory">
+        <Bindings>
+            <engine:DataBinding property="value" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="TwoWay" data-source-path="bundleFolder" />
+        </Bindings>
+    </engine:TextField>
+    <engine:Toggle label="Force Rebuild">
+        <Bindings>
+            <engine:DataBinding property="value" data-source-path="forceRebuild" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="TwoWay" />
+        </Bindings>
+    </engine:Toggle>
+    <engine:EnumField label="Target" value="0" type="UnityEditor.BuildTarget, UnityEditor.CoreModule">
+        <Bindings>
+            <engine:DataBinding property="value" data-source-path="target" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="TwoWay" />
+        </Bindings>
+    </engine:EnumField>
+    <engine:GroupBox text="Zip Group" style="-unity-font-style: normal;">
+        <engine:Toggle label="Create Zip-Archives" name="cbZip">
+            <Bindings>
+                <engine:DataBinding property="value" data-source-path="createZipPackages" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="TwoWay" />
+            </Bindings>
+        </engine:Toggle>
+        <engine:TextField label="Output Directory" placeholder-text="relative to Project" name="tfZipDir">
+            <Bindings>
+                <engine:DataBinding property="value" data-source-path="zipOutputDir" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="TwoWay" />
+                <engine:DataBinding property="enabledSelf" data-source-path="createZipPackages" binding-mode="ToTarget" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" />
+            </Bindings>
+        </engine:TextField>
+        <engine:TextField label="Version" placeholder-text="optional">
+            <Bindings>
+                <engine:DataBinding property="value" data-source-path="version" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="TwoWay" />
+                <engine:DataBinding property="enabledSelf" data-source-path="createZipPackages" data-source="project://database/Assets/AssetBundle/Editor/AssetBundleData.asset?fileID=11400000&amp;guid=fb9e871ebb5cfb74ebc4784b6e10a177&amp;type=2#AssetBundleData" binding-mode="ToTarget" />
+            </Bindings>
+        </engine:TextField>
+    </engine:GroupBox>
+    <engine:Button text="Build" name="btnBuild" />
+</engine:UXML>

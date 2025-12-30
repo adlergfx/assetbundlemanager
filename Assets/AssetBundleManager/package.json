@@ -1,0 +1,25 @@
+{
+  "name": "com.adler.assetbundlemanager",
+  "displayName": "AssetBundleManager",
+  "version": "0.1.0",
+  "unity": "6000.3",
+  "unityRelease": "2f1",
+  "description": "",
+  "author": {
+    "name": "Simon Adler"
+  },
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2"
+  },
+  "keywords": [
+    "AssetBundle"
+  ],
+  "samples": [
+    {
+      "displayName": "Dynamic Load",
+      "description": "Setup to load Assets dynamically",
+      "path": "Samples~/DynamicLoad"
+    }    
+  ]
+    
+}

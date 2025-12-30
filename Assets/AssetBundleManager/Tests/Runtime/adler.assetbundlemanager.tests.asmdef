@@ -1,0 +1,14 @@
+{
+    "name": "adler.assetbundlemanager.tests",
+    "rootNamespace": "Adler.AssetBundleManager.Tests",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
