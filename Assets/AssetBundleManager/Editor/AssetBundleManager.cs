@@ -1,26 +1,43 @@
 #if UNITY_EDITOR
 
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using AssetBundle.Editor;
 using Newtonsoft.Json;
+using Unity.Properties;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class AssetBundleManager : EditorWindow
 {
-    [SerializeField]
     private VisualTreeAsset m_VisualTreeAsset = default;
-
-    [SerializeField] 
     private SOAssetBundleData data;
 
     private static readonly string versionTag = "version";
     private static readonly string ScriptAssemblies = "Library/ScriptAssemblies";
-    
+
+    private void OnEnable()
+    {
+        Type t = this.GetType();
+        m_VisualTreeAsset = getAsset<VisualTreeAsset>(t.Name);
+        data = getAsset<SOAssetBundleData>("AssetBundleData");
+    }
+
+    private T getAsset<T>(string name) where T:UnityEngine.Object
+    {
+        string[] guid = AssetDatabase.FindAssets(name);
+        foreach (string id in guid)
+        {
+            T res = AssetDatabase.LoadAssetByGUID<T>(new GUID(id));
+            if (res != null) return res;
+        }
+        
+        return null;
+    }
 
     [MenuItem("Assets/Build Asset Bundles")]
     public static void ShowDialog()
@@ -92,6 +109,13 @@ public class AssetBundleManager : EditorWindow
             createZip(bundle);
         }
     }
+    /*
+    private void bind(SOAssetBundleData d, VisualElement v)
+    {
+        if (d == null) return;
+        v.Q<TextField>("Directory").SetBinding("d", new DataBinding(){dataSource = d, dataSourcePath = new PropertyPath(nameof(d.bundleFolder)), bindingMode = BindingMode.TwoWay}  );
+    }*/
+    
 
     public void CreateGUI()
     {
@@ -100,6 +124,7 @@ public class AssetBundleManager : EditorWindow
         // Instantiate UXML
         VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
         root.Add(labelFromUXML);
+      //  bind(data, labelFromUXML);
         
         Button btn = root.Q<Button>("btnBuild");
         btn.clicked += buildBundles;
