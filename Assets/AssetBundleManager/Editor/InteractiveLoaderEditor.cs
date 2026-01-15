@@ -1,7 +1,7 @@
-using Codice.CM.Common;
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [CustomEditor(typeof(InteractiveLoader))]
 public class InteractiveLoaderEditor : Editor
@@ -16,3 +16,5 @@ public class InteractiveLoaderEditor : Editor
 
     }
 }
+
+#endif

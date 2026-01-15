@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor;
 using UnityEngine;
 
@@ -14,3 +16,5 @@ namespace AssetBundle.Editor
         public string version = "";
     }
 }
+
+#endif

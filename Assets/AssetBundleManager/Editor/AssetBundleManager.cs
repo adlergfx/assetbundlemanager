@@ -1,14 +1,13 @@
-using System;
+#if UNITY_EDITOR
+
+
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using AssetBundle.Editor;
 using Newtonsoft.Json;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.Android;
 using UnityEngine.UIElements;
 
 public class AssetBundleManager : EditorWindow
@@ -107,3 +106,4 @@ public class AssetBundleManager : EditorWindow
 
     }
 }
+#endif
