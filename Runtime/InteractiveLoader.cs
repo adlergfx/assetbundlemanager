@@ -88,7 +88,7 @@ public class InteractiveLoader : MonoBehaviour
                 
                 string jsonString = client.DownloadString(jsonUri);
                 Dictionary<string, string> map = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonString);
-                if (!isUpdateRequired(map.GetValueOrDefault(versionTag, ""), package)) return;
+                if (!isUpdateRequired(map.GetValueOrDefault(versionTag, ""), package)) continue;
                 File.WriteAllText(Path.Combine(Application.streamingAssetsPath, $"{package}.json"), jsonString);
 
                 PackageData data = new PackageData { package = package, zipFile = zipFile };
